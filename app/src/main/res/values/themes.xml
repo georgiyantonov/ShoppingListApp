@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ShoppingListApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/customColor</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="cardViewStyle">@style/MyCard</item>
+
+    </style>
+
+    <style name="MyCard" parent="CardView">
+        <item name="cardBackgroundColor">@android:color/transparent</item>
+        <item name="cardCornerRadius">0dp</item>
+    </style>
+
+    <style name="MyLL">
+        <item name="background">@color/white</item>
+    </style>
+
+    <style name="Theme.ShoppingListApp" parent="Base.Theme.ShoppingListApp" />
+</resources>

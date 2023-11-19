@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Shopping list</string>
+    <string name="clear_btn_cd">Clear list</string>
+    <string name="add_btn_cd">Add item to list</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_update">Update</string>
+    <string name="amount_ti_hint">Amount</string>
+    <string name="name_ti_hint">Name</string>
+    <string name="description_ti_hint">Description</string>
+    <string name="bs_title_add">Add item</string>
+    <string name="bs_title_update">Update item</string>
+</resources>

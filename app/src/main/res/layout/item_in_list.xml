@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvItemContainer"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:layout_height="90dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:paddingStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvItemName"
+            tools:text="Placeholder"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_gravity="center"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvItemAmount"
+            tools:text="Placeholder"
+            style="@style/TextAppearance.AppCompat"
+            android:layout_gravity="center"
+            />
+        <ImageButton
+            android:id="@+id/ibBought"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleY="1.5"
+            android:scaleX="1.5"
+            android:layout_marginHorizontal="15dp"
+            android:src="@drawable/ic_cart"
+            android:contentDescription="Bought"
+            android:backgroundTint="@android:color/transparent"/>
+        
+
+        
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

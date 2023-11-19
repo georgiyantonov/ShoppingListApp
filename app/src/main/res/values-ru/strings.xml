@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Список покупок</string>
+    <string name="clear_btn_cd">Очистить список</string>
+    <string name="add_btn_cd">Добавить покупку в список</string>
+    <string name="btn_add">Добавить</string>
+    <string name="btn_update">Обновить</string>
+    <string name="amount_ti_hint">Количество</string>
+    <string name="name_ti_hint">Название</string>
+    <string name="description_ti_hint">Описание</string>
+    <string name="bs_title_add">Добавить покупку</string>
+    <string name="bs_title_update">Обновить покупку</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>
