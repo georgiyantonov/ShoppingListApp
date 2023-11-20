@@ -70,8 +70,8 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
             background.color = buyBackgroundColor
             iconTop = itemView.top + (itemHeight - buyIntrinsicHeight) / 2
             iconMargin = (itemHeight - buyIntrinsicHeight) / 2
-            iconLeft = itemView.left + iconMargin - buyIntrinsicWidth
-            iconRight = itemView.left + iconMargin
+            iconLeft = itemView.left + iconMargin
+            iconRight = itemView.left + iconMargin + buyIntrinsicWidth
             iconBottom = iconTop + buyIntrinsicHeight
 
 
