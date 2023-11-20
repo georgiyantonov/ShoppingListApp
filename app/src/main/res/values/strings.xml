@@ -9,4 +9,5 @@
     <string name="description_ti_hint">Description</string>
     <string name="bs_title_add">Add item</string>
     <string name="bs_title_update">Update item</string>
+    <string name="bought_btn_cd">Buy cancel button</string>
 </resources>

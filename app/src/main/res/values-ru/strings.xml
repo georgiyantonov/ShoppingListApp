@@ -10,5 +10,6 @@
     <string name="description_ti_hint">Описание</string>
     <string name="bs_title_add">Добавить покупку</string>
     <string name="bs_title_update">Обновить покупку</string>
+    <string name="bought_btn_cd">Кнопка отмены покупки</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

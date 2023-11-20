@@ -1,6 +1,7 @@
 package com.example.shoppinglistapp
 
 import android.content.Context
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglistapp.databinding.ItemInListBinding
 import com.example.shoppinglistapp.listeners.ItemClickListener
@@ -15,7 +16,7 @@ class ItemViewHolder(
     fun bindItem(item: Item) {
         binding.tvItemName.text = item.name
         if (item.isBough()) {
-            binding.cvItemContainer.alpha = 0.6F
+            binding.ibBought.visibility = View.VISIBLE
         }
         binding.ibBought.setImageResource(item.imageResource())
         binding.ibBought.setColorFilter(item.imageColor(context))

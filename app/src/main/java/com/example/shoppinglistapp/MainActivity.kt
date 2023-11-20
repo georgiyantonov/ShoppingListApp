@@ -60,10 +60,16 @@ class MainActivity : AppCompatActivity(), ItemClickListener, ItemSwipeListener {
         }
         val swipeHandler = object : ItemSwipe(this) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                Log.e("Direction", "$direction")
                 val position = viewHolder.adapterPosition
                 val item = adapterRV.differ.currentList[position]
-                deleteItem(item)
-                binding.rvItemsList.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
+                if(direction == 4){
+                    deleteItem(item)
+                    binding.rvItemsList.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
+                } else if(direction == 8){
+                    buyItem(item)
+                    binding.rvItemsList.adapter!!.notifyItemChanged(viewHolder.adapterPosition)
+                }
                 Log.e("tag", "${viewHolder.adapterPosition}")
             }
         }
