@@ -12,7 +12,7 @@ class Item(
     @ColumnInfo("description") var description: String?,
     @ColumnInfo("amount") var amount: Double?,
     @ColumnInfo("bought") var bought: Boolean = false,
-    @PrimaryKey(true) val id: Int = 0
+    @PrimaryKey(true) val id: Long = 0
 ) {
 
     fun isBough() = bought

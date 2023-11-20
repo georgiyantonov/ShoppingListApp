@@ -1,4 +1,6 @@
-package com.example.shoppinglistapp
+package com.example.shoppinglistapp.listeners
+
+import com.example.shoppinglistapp.Item
 
 interface ItemClickListener {
     fun editItem(item: Item)

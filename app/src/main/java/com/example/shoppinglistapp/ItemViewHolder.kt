@@ -1,16 +1,16 @@
 package com.example.shoppinglistapp
 
 import android.content.Context
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglistapp.databinding.ItemInListBinding
+import com.example.shoppinglistapp.listeners.ItemClickListener
 
 class ItemViewHolder(
     private val context: Context,
     private val binding: ItemInListBinding,
     private val clickListener: ItemClickListener,
 
-): RecyclerView.ViewHolder(binding.root) {
+    ): RecyclerView.ViewHolder(binding.root) {
 
     fun bindItem(item: Item) {
         binding.tvItemName.text = item.name
