@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ import com.example.shoppinglistapp.listeners.ItemSwipe
 import com.example.shoppinglistapp.listeners.ItemSwipeListener
 import com.example.shoppinglistapp.notification.PushBroadcastReceiver
 import com.example.shoppinglistapp.notification.PushService
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), ItemClickListener, ItemSwipeListener {
 
@@ -66,6 +68,19 @@ class MainActivity : AppCompatActivity(), ItemClickListener, ItemSwipeListener {
                 if(direction == 4){
                     deleteItem(item)
                     binding.rvItemsList.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
+                    Snackbar.make(binding.root, getString(R.string.snack_text),
+                        Snackbar.LENGTH_SHORT).apply {
+                            setAction(getString(R.string.snack_undo)) {
+                                itemViewModel.addItem(item)
+                            }
+                        this.setBackgroundTint(ContextCompat
+                            .getColor(this@MainActivity, R.color.customColor))
+                        this.setTextColor(ContextCompat
+                            .getColor(this@MainActivity, R.color.white))
+                        this.setActionTextColor(ContextCompat
+                            .getColor(this@MainActivity, R.color.white))
+                        show()
+                    }
                 } else if(direction == 8){
                     buyItem(item)
                     binding.rvItemsList.adapter!!.notifyItemChanged(viewHolder.adapterPosition)

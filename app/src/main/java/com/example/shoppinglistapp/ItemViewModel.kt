@@ -7,7 +7,6 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
-import java.util.Collections
 
 class ItemViewModel(
     private val repository: ItemsRepository

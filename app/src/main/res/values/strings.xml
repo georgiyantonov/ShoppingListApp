@@ -10,4 +10,6 @@
     <string name="bs_title_add">Add item</string>
     <string name="bs_title_update">Update item</string>
     <string name="bought_btn_cd">Buy cancel button</string>
+    <string name="snack_text">Item deleted</string>
+    <string name="snack_undo">Undo</string>
 </resources>
