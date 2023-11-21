@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.ShoppingListApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -10,7 +10,7 @@
     </style>
 
     <style name="MyCard" parent="CardView">
-        <item name="cardBackgroundColor">@android:color/transparent</item>
+        <item name="cardBackgroundColor">@android:color/white</item>
         <item name="cardCornerRadius">0dp</item>
     </style>
 
