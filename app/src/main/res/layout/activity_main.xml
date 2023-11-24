@@ -22,18 +22,13 @@
             android:background="@drawable/border_line_bottom">
 
             <TextView
-
                 android:layout_marginStart="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/app_name"
                 android:textSize="22sp"/>
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
 
             <ImageButton
                 android:src="@drawable/ic_clear"
@@ -43,6 +38,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
+                android:layout_weight="0"
                 android:layout_marginEnd="15dp"
                 android:contentDescription="@string/clear_btn_cd"/>
 
@@ -67,6 +63,20 @@
         android:layout_alignParentBottom="true"
         app:icon="@drawable/ic_add"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:iconTint="?colorOnPrimary"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/add_btn_cd"
+        android:id="@+id/btnToWallet"
+        android:backgroundTint="@color/customColor"
+        android:textColor="?colorOnPrimary"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        app:icon="@drawable/ic_wallet"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         app:iconTint="?colorOnPrimary"/>
 

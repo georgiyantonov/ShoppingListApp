@@ -1,11 +1,13 @@
 package com.example.shoppinglistapp
 
+import android.content.ActivityNotFoundException
 import android.content.BroadcastReceiver
+import android.content.Intent
 import android.content.IntentFilter
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,6 +46,10 @@ class MainActivity : AppCompatActivity(), ItemClickListener, ItemSwipeListener {
             itemViewModel.deleteAllItems()
         }
         setRecyclerView()
+
+        binding.btnToWallet.setOnClickListener{
+            goToWallet()
+        }
     }
 
     override fun onDestroy() {
@@ -105,5 +111,16 @@ class MainActivity : AppCompatActivity(), ItemClickListener, ItemSwipeListener {
 
     override fun deleteItem(item: Item) {
         itemViewModel.deleteItem(item)
+    }
+
+    private fun goToWallet() {
+        try {
+            val intent = Intent()
+            intent.setPackage("com.google.android.apps.walletnfcrel")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Log.e("ANFE", "Wallet activity not found")
+        }
     }
 }

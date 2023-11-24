@@ -13,5 +13,6 @@
     <string name="bought_btn_cd">Кнопка отмены покупки</string>
     <string name="snack_text">Покупка удалена</string>
     <string name="snack_undo">Отменить</string>
+    <string name="wallet_chooser">Выберите кошелёк</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

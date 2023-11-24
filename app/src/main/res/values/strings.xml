@@ -12,4 +12,5 @@
     <string name="bought_btn_cd">Buy cancel button</string>
     <string name="snack_text">Item deleted</string>
     <string name="snack_undo">Undo</string>
+    <string name="wallet_chooser">Choose wallet</string>
 </resources>
