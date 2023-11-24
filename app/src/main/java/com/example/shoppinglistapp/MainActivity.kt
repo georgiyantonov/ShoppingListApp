@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -47,6 +48,10 @@ class MainActivity : AppCompatActivity(), ItemClickListener, ItemSwipeListener {
         }
         setRecyclerView()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
         binding.btnToWallet.setOnClickListener{
             goToWallet()
         }
@@ -116,11 +121,14 @@ class MainActivity : AppCompatActivity(), ItemClickListener, ItemSwipeListener {
     private fun goToWallet() {
         try {
             val intent = Intent()
-            intent.setPackage("com.google.android.apps.walletnfcrel")
+            intent.setPackage("ru.cardsmobile.mw3")
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         } catch (e: ActivityNotFoundException) {
             Log.e("ANFE", "Wallet activity not found")
+            startActivity(Intent(Intent.ACTION_VIEW).setData(
+                Uri.parse("market://details?id=ru.cardsmobile.mw3"))
+            )
         }
     }
 }
