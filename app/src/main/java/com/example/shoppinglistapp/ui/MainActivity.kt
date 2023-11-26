@@ -1,4 +1,4 @@
-package com.example.shoppinglistapp
+package com.example.shoppinglistapp.ui
 
 import android.content.ActivityNotFoundException
 import android.content.BroadcastReceiver
@@ -13,12 +13,19 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shoppinglistapp.ItemsApplication
+import com.example.shoppinglistapp.R
 import com.example.shoppinglistapp.databinding.ActivityMainBinding
-import com.example.shoppinglistapp.listeners.ItemClickListener
-import com.example.shoppinglistapp.listeners.ItemSwipe
-import com.example.shoppinglistapp.listeners.ItemSwipeListener
+import com.example.shoppinglistapp.entities.Item
 import com.example.shoppinglistapp.notification.PushBroadcastReceiver
 import com.example.shoppinglistapp.notification.PushService
+import com.example.shoppinglistapp.ui.adapters.ItemsAdapter
+import com.example.shoppinglistapp.ui.fragments.NewItemSheet
+import com.example.shoppinglistapp.ui.listeners.ItemClickListener
+import com.example.shoppinglistapp.ui.listeners.ItemSwipe
+import com.example.shoppinglistapp.ui.listeners.ItemSwipeListener
+import com.example.shoppinglistapp.ui.viewmodels.ItemModelFactory
+import com.example.shoppinglistapp.ui.viewmodels.ItemViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), ItemClickListener, ItemSwipeListener {

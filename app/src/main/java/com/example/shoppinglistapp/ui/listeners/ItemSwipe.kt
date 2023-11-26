@@ -1,4 +1,4 @@
-package com.example.shoppinglistapp.listeners
+package com.example.shoppinglistapp.ui.listeners
 
 import android.content.Context
 import android.graphics.Canvas

@@ -1,10 +1,11 @@
-package com.example.shoppinglistapp
+package com.example.shoppinglistapp.entities
 
 import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.shoppinglistapp.R
 
 @Entity("items_table")
 class Item(

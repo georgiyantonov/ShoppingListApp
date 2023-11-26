@@ -1,8 +1,9 @@
-package com.example.shoppinglistapp
+package com.example.shoppinglistapp.repositories
 
 import androidx.annotation.WorkerThread
+import com.example.shoppinglistapp.db.ItemDao
+import com.example.shoppinglistapp.entities.Item
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 class ItemsRepository(
     private val itemDao: ItemDao,

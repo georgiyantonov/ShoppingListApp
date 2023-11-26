@@ -1,12 +1,13 @@
-package com.example.shoppinglistapp
+package com.example.shoppinglistapp.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.shoppinglistapp.entities.Item
+import com.example.shoppinglistapp.repositories.ItemsRepository
 import kotlinx.coroutines.launch
-import java.lang.IllegalArgumentException
 
 class ItemViewModel(
     private val repository: ItemsRepository

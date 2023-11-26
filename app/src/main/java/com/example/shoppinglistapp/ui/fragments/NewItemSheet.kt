@@ -1,6 +1,5 @@
-package com.example.shoppinglistapp
+package com.example.shoppinglistapp.ui.fragments
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.text.Editable
 import android.view.LayoutInflater
@@ -8,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.shoppinglistapp.R
 import com.example.shoppinglistapp.databinding.FragmentNewItemSheetBinding
+import com.example.shoppinglistapp.entities.Item
+import com.example.shoppinglistapp.ui.viewmodels.ItemViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class NewItemSheet(var item: Item?) : BottomSheetDialogFragment() {
@@ -26,7 +28,7 @@ class NewItemSheet(var item: Item?) : BottomSheetDialogFragment() {
             val editable = Editable.Factory.getInstance()
             binding.tiItemName.text = editable.newEditable(item!!.name)
             binding.tiItemDescription.text = editable.newEditable(item!!.description)
-            var amount = when(item?.amount){
+            val amount = when(item?.amount){
                 null -> ""
                 else -> item!!.amount!!.toInt()
             }
@@ -44,7 +46,7 @@ class NewItemSheet(var item: Item?) : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNewItemSheetBinding.inflate(inflater, container, false)
         return binding.root
     }

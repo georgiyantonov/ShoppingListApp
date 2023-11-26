@@ -31,8 +31,9 @@
             android:id="@+id/tvItemAmount"
             tools:text="Placeholder"
             style="@style/TextAppearance.AppCompat"
-            android:layout_gravity="center"
-            />
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="center"/>
+
         <ImageButton
             android:id="@+id/ibBought"
             android:layout_width="wrap_content"
@@ -42,7 +43,7 @@
             android:scaleX="1.5"
             android:layout_marginHorizontal="15dp"
             android:src="@drawable/ic_check"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:contentDescription="@string/bought_btn_cd"
             android:backgroundTint="@android:color/transparent"/>
 

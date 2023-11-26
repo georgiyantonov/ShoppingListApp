@@ -2,12 +2,11 @@ package com.example.shoppinglistapp
 
 import android.app.Application
 import android.util.Log
-import android.widget.Toast
+import com.example.shoppinglistapp.db.ItemDatabase
+import com.example.shoppinglistapp.repositories.ItemsRepository
 import com.google.firebase.Firebase
-import com.google.firebase.inappmessaging.model.InAppMessage
 import com.google.firebase.installations.installations
 import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.messaging.FirebaseMessagingService
 
 class ItemsApplication: Application() {
 

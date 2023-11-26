@@ -1,4 +1,4 @@
-package com.example.shoppinglistapp
+package com.example.shoppinglistapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglistapp.databinding.ItemInListBinding
-import com.example.shoppinglistapp.listeners.ItemClickListener
+import com.example.shoppinglistapp.entities.Item
+import com.example.shoppinglistapp.ui.listeners.ItemClickListener
+import com.example.shoppinglistapp.ui.viewholders.ItemViewHolder
 
 class ItemsAdapter(
     private val items: List<Item>,
