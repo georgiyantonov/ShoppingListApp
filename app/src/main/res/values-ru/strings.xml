@@ -14,5 +14,6 @@
     <string name="snack_text">Покупка удалена</string>
     <string name="snack_undo">Отменить</string>
     <string name="wallet_chooser">Выберите кошелёк</string>
+    <string name="sheet_toggle_cd">Свайпните для расширения или скрытия</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

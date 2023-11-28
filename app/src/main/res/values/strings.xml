@@ -13,4 +13,5 @@
     <string name="snack_text">Item deleted</string>
     <string name="snack_undo">Undo</string>
     <string name="wallet_chooser">Choose wallet</string>
+    <string name="sheet_toggle_cd">Swipe to expand or dismiss</string>
 </resources>
