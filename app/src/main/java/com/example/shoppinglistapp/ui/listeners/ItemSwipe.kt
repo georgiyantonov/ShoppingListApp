@@ -7,8 +7,10 @@ import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglistapp.R
@@ -24,7 +26,7 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
     private val buyIntrinsicWidth = buyIcon!!.intrinsicWidth
     private val buyIntrinsicHeight = buyIcon!!.intrinsicHeight
 
-
+    private lateinit var icon: Drawable
     private val background = ColorDrawable()
     private val deleteBackgroundColor = Color.parseColor("#f44336")
     private val buyBackgroundColor = ContextCompat.getColor(context, R.color.customColor)
@@ -50,11 +52,15 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
         val itemView = viewHolder.itemView
         val itemHeight = itemView.bottom - itemView.top
         val isCanceled = dX == 0f && !isCurrentlyActive
+        itemView.foreground = null
 
         if (isCanceled) {
             clearCanvas(c, itemView.right + dX, itemView.top.toFloat(),
                 itemView.right.toFloat(), itemView.bottom.toFloat())
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            itemView.foreground = ResourcesCompat.getDrawable(itemView.resources,
+                R.drawable.item_border_line_bottom, null)
+            itemView.background = null
             return
         }
 
@@ -73,14 +79,11 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
             iconLeft = itemView.left + iconMargin
             iconRight = itemView.left + iconMargin + buyIntrinsicWidth
             iconBottom = iconTop + buyIntrinsicHeight
-
-
+            icon = buyIcon!!
+            itemView.background = ResourcesCompat.getDrawable(itemView.resources,
+                R.drawable.shape_rounded_left, null)
             background.setBounds(itemView.left - dX.toInt(), itemView.top, itemView.right,
                 itemView.bottom)
-            background.draw(c)
-
-            buyIcon!!.setBounds(iconLeft, iconTop, iconRight, iconBottom)
-            buyIcon.draw(c)
         } else {
             background.color = deleteBackgroundColor
             iconTop = itemView.top + (itemHeight - delIntrinsicHeight) / 2
@@ -88,15 +91,18 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
             iconLeft = itemView.right - iconMargin - delIntrinsicWidth
             iconRight = itemView.right - iconMargin
             iconBottom = iconTop + delIntrinsicHeight
-
-
-            background.setBounds(itemView.right + dX.toInt(), itemView.top, itemView.right,
+            icon = deleteIcon!!
+            itemView.background = ResourcesCompat.getDrawable(itemView.resources,
+                R.drawable.shape_rounded_right, null)
+            background.setBounds(itemView.right + dX.toInt() - 30, itemView.top, itemView.right,
                 itemView.bottom)
-            background.draw(c)
-
-            deleteIcon!!.setBounds(iconLeft, iconTop, iconRight, iconBottom)
-            deleteIcon.draw(c)
         }
+
+        background.draw(c)
+
+        icon.setBounds(iconLeft, iconTop, iconRight, iconBottom)
+        icon.draw(c)
+
 
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
     }
