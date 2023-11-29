@@ -11,9 +11,9 @@ import com.example.shoppinglistapp.R
 class Item(
     @ColumnInfo("name") var name: String,
     @ColumnInfo("description") var description: String?,
-    @ColumnInfo("amount") var amount: Double?,
+    @ColumnInfo("amount") var amount: Float?,
     @ColumnInfo("bought") var bought: Boolean = false,
-    @PrimaryKey(true) val id: Long = 0
+    @PrimaryKey(true) val id: Short = 0
 ) {
 
     fun isBough() = bought

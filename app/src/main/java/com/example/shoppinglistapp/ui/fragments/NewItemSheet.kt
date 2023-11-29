@@ -60,12 +60,12 @@ class NewItemSheet(var item: Item?) : BottomSheetDialogFragment() {
             return
         }
         if (item == null) {
-            val newItem = Item(name, description, if(amount.isEmpty()) null else amount.toDouble())
+            val newItem = Item(name, description, if(amount.isEmpty()) null else amount.toFloat())
             itemViewModel.addItem(newItem)
         } else {
             item!!.name = name
             item!!.description = description
-            item!!.amount = amount.toDouble()
+            item!!.amount = amount.toFloat()
 
             itemViewModel.updateItem(item!!)
         }
