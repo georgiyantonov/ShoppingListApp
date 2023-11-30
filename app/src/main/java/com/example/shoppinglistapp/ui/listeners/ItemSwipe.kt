@@ -64,7 +64,7 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
             return
         }
 
-        Log.e("dX", "$dX")
+        Log.e("dX", "${Math.abs(dX.toInt())}")
 
         val iconTop: Int
         val iconMargin: Int
@@ -94,7 +94,7 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
             icon = deleteIcon!!
             itemView.background = ResourcesCompat.getDrawable(itemView.resources,
                 R.drawable.shape_rounded_right, null)
-            background.setBounds(itemView.right + dX.toInt() - 30, itemView.top, itemView.right,
+            background.setBounds(itemView.right + dX.toInt() + dX.toInt(), itemView.top, itemView.right,
                 itemView.bottom)
         }
 

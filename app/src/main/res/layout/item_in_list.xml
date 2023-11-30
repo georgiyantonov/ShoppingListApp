@@ -45,8 +45,6 @@
             android:contentDescription="@string/bought_btn_cd"
             android:backgroundTint="@android:color/transparent"/>
 
-
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
