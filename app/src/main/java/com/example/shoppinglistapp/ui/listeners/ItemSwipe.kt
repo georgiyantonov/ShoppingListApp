@@ -80,9 +80,15 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
             iconRight = itemView.left + iconMargin + buyIntrinsicWidth
             iconBottom = iconTop + buyIntrinsicHeight
             icon = buyIcon!!
-            itemView.background = ResourcesCompat.getDrawable(itemView.resources,
-                R.drawable.shape_rounded_left, null)
-            background.setBounds(itemView.left - dX.toInt(), itemView.top, itemView.right,
+            itemView.background = ResourcesCompat.getDrawable(
+                itemView.resources,
+                R.drawable.shape_rounded_left,
+                null
+            )
+            background.setBounds(
+                itemView.left - dX.toInt(),
+                itemView.top,
+                itemView.right,
                 itemView.bottom)
         } else {
             background.color = deleteBackgroundColor
@@ -92,10 +98,17 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
             iconRight = itemView.right - iconMargin
             iconBottom = iconTop + delIntrinsicHeight
             icon = deleteIcon!!
-            itemView.background = ResourcesCompat.getDrawable(itemView.resources,
-                R.drawable.shape_rounded_right, null)
-            background.setBounds(itemView.right + dX.toInt() + dX.toInt(), itemView.top, itemView.right,
-                itemView.bottom)
+            itemView.background = ResourcesCompat.getDrawable(
+                itemView.resources,
+                R.drawable.shape_rounded_right,
+                null
+            )
+            background.setBounds(
+                itemView.right + dX.toInt() + dX.toInt(),
+                itemView.top,
+                itemView.right,
+                itemView.bottom
+            )
         }
 
         background.draw(c)
