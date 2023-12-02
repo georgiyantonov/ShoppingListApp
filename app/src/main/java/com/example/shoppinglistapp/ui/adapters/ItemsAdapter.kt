@@ -1,5 +1,6 @@
 package com.example.shoppinglistapp.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -21,8 +22,9 @@ class ItemsAdapter(
             return oldItem.id == newItem.id
         }
 
+        @SuppressLint("DiffUtilEquals")
         override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
-            return  oldItem.equals(newItem)
+            return oldItem == newItem
         }
     }
 

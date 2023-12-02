@@ -14,6 +14,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglistapp.R
+import kotlin.math.abs
 
 abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
     ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
@@ -64,7 +65,7 @@ abstract class ItemSwipe(context: Context): ItemTouchHelper.SimpleCallback(0,
             return
         }
 
-        Log.e("dX", "${Math.abs(dX.toInt())}")
+        Log.e("dX", "${abs(dX.toInt())}")
 
         val iconTop: Int
         val iconMargin: Int
