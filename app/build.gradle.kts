@@ -58,6 +58,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     testImplementation("com.google.truth:truth:1.1.4")
     androidTestImplementation("com.google.truth:truth:1.1.4")
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
 
     implementation("com.google.devtools.ksp:symbol-processing-api:1.9.20-1.0.14")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")

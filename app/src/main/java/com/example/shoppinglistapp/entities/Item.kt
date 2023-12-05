@@ -24,4 +24,10 @@ class Item(
     private fun boughtColor(context: Context) = ContextCompat.getColor(context, R.color.customColor)
     private fun notBoughtColor(context: Context) =
         ContextCompat.getColor(context, androidx.appcompat.R.color.material_grey_300)
+
+    override fun equals(other: Any?) = (other is Item)
+        && name == other.name
+        && description == other.description
+        && amount == other.amount
+        && bought == other.bought
 }
