@@ -6,7 +6,6 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.example.shoppinglistapp.entities.Item
-import com.example.shoppinglistapp.repositories.ItemsRepository
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -33,7 +32,6 @@ class ItemDaoTest {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
     private lateinit var db: ItemDatabase
     private lateinit var dao: ItemDao
-    private lateinit var repository: ItemsRepository
 
     @Before
     fun setup(){
@@ -42,7 +40,6 @@ class ItemDaoTest {
             ItemDatabase::class.java
         ).allowMainThreadQueries().build()
         dao = db.itemDao()
-        repository = ItemsRepository(dao)
     }
 
     @After
@@ -60,11 +57,11 @@ class ItemDaoTest {
         val itemsArray = arrayOf(item, item2, item3)
         itemsArray.forEach {
             launch {
-                repository.insertItem(it)
+                dao.insertNewItem(it)
             }
         }
 
-        val dbList = repository.allItems.first().toTypedArray()
+        val dbList = dao.allItems().first().toTypedArray()
         assertThat(dbList.contentEquals(itemsArray)).isTrue()
     }
 
@@ -76,8 +73,8 @@ class ItemDaoTest {
               null,
               false,
             )
-        repository.insertItem(item)
-        val savedItemArray = repository.allItems.first()[0]
+        dao.insertNewItem(item)
+        val savedItemArray = dao.allItems().first()[0]
         assertThat(savedItemArray == item).isTrue()
     }
 
@@ -90,8 +87,8 @@ class ItemDaoTest {
                 false,
                 id=1
             )
-        repository.insertItem(item)
-        val insertedItem = repository.allItems.first()[0]
+        dao.insertNewItem(item)
+        val insertedItem = dao.allItems().first()[0]
         assertThat(insertedItem == item).isTrue()
 
         val updatedItem = Item(
@@ -101,8 +98,8 @@ class ItemDaoTest {
                 true,
                 id=1
             )
-        repository.updateItem(updatedItem)
-        val insertedAndUpdatedItem = repository.allItems.first()
+        dao.updateItem(updatedItem)
+        val insertedAndUpdatedItem = dao.allItems().first()
 
         assertThat(insertedAndUpdatedItem[0] == updatedItem).isTrue()
         assertThat(insertedAndUpdatedItem).doesNotContain(item)
@@ -111,9 +108,9 @@ class ItemDaoTest {
     @Test
     fun deleteItem() = runTest {
         val item = Item("test", "test", 1.5f, true, id=1)
-        repository.insertItem(item)
-        repository.deleteItem(item)
-        val deletedList = repository.allItems.first()
+        dao.insertNewItem(item)
+        dao.deleteItem(item)
+        val deletedList = dao.allItems().first()
 
         assertThat(deletedList).doesNotContain(item)
     }
@@ -125,11 +122,11 @@ class ItemDaoTest {
         val item3 = Item("test3", null, 0.5f, true, id=3)
         val itemsArray = arrayOf(item, item2, item3)
         itemsArray.forEach {
-            repository.insertItem(it)
+            dao.insertNewItem(it)
         }
 
-        repository.deleteAllItems()
-        val dbList = repository.allItems.first().toTypedArray()
+        dao.deleteAll()
+        val dbList = dao.allItems().first().toTypedArray()
         assertThat(dbList.contentEquals(itemsArray)).isFalse()
     }
 }
