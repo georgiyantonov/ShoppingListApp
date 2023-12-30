@@ -65,7 +65,7 @@ class NewItemSheet(var item: Item?) : BottomSheetDialogFragment() {
         } else {
             item!!.name = name
             item!!.description = description
-            item!!.amount = amount.toFloat()
+            item!!.amount = if (amount.isEmpty()) null else amount.toFloat()
 
             itemViewModel.updateItem(item!!)
         }
